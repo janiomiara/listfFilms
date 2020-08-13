@@ -1,7 +1,13 @@
 import React from 'react'
+import GloblaStyles from './styles/global'
 
 function App() {
-  return <div>Teste</div>
+  return (
+    <>
+      <GloblaStyles />
+      <div>Teste</div>
+    </>
+  )
 }
 
 export default App
