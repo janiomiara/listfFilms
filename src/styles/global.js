@@ -1,4 +1,4 @@
-import {createGlobalStyle} from 'styled-components';
+import { createGlobalStyle } from 'styled-components'
 
 const GloblaStyles = createGlobalStyle`
   *{
@@ -15,7 +15,8 @@ const GloblaStyles = createGlobalStyle`
   }
 
   body{
-  font-family: -apple-system, BlinkMacSystemGont, 'Segoe UI', Roboto, Oxygem, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemGont, 'Segoe UI', 
+  Roboto, Oxygem, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
-`;
-export default GloblaStyles;
+`
+export default GloblaStyles
