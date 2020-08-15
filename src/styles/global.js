@@ -17,6 +17,9 @@ const GloblaStyles = createGlobalStyle`
   body{
   font-family: -apple-system, BlinkMacSystemGont, 'Segoe UI', 
   Roboto, Oxygem, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  overflow: hidden;
+  height: 100%;
   }
+  
 `
 export default GloblaStyles

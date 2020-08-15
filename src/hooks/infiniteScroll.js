@@ -1,26 +1,29 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
-export default function useInfiniteScroll(callback) {
-  const [isFetching, setIsFetching] = useState(false)
+export default function useInfiniteScroll() {
   const [page, setPage] = useState(1)
-  const [totalPage, setTPage] = useState(10000)
+  const ref = useRef(null)
+
+  const getListContainer = () => {
+    return ref.current
+  }
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    getListContainer().addEventListener('scroll', handleScroll)
+    return () => getListContainer().removeEventListener('scroll', handleScroll)
   }, [])
 
-  useEffect(() => {
-    if (!isFetching) return
-    if (totalPage >= page) callback()
-  }, [isFetching, page, callback, totalPage])
-
   const handleScroll = () => {
-    const { scrollTop, scrollHeight } = document.scrollingElement
-    if (scrollTop + window.innerHeight >= scrollHeight) {
+    const list = getListContainer()
+    const winScroll = list.scrollTop
+    const height = list.scrollHeight - list.clientHeight
+    const scrolled = winScroll - height
+    if (scrolled === 0) {
       setPage((prevCount) => prevCount + 1)
-      return setIsFetching(true)
     }
   }
-  return { page, isFetching, setIsFetching, setTPage, totalPage, setPage }
+  return {
+    page,
+    ref,
+  }
 }

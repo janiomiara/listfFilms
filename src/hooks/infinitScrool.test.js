@@ -9,7 +9,7 @@ test('Iniciando hooks InfinitScrooll', () => {
   expect(totalPage).toBe(10000)
 })
 
-test('Iniciando hooks InfinitScroll setando varias tipo page e fetching', () => {
+test('Iniciando hook InfinitScroll setando varias tipo page e fetching', () => {
   const { result } = renderHook(() => useInfiniteScroll(() => {}))
 
   act(() => {
