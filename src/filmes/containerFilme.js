@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { ModalContext } from '../modal/Context'
+import { ModalContext } from '../modal/context'
 import * as S from './styles'
 
 const urlImage = 'https://image.tmdb.org/t/p/w220_and_h330_face/'

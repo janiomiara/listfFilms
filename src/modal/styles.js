@@ -62,11 +62,6 @@ export const Header = styled.div`
   top: 0;
   border-radius: 5px 5px 0px 0px;
 `
-
-export const TituloBody = styled.h1`
-  margin-bottom: 20px;
-`
-
 export const Close = styled.div`
   display: flex;
   align-items: center;

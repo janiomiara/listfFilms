@@ -3,7 +3,7 @@ import GloblaStyles from './styles/global'
 import Nav from './nav'
 import Filmes from './filmes'
 import Modal from './modal'
-import { ModalProvider } from './modal/Context'
+import { ModalProvider } from './modal/context'
 
 function App() {
   return (
