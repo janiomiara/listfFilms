@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import ReactDOM from 'react-dom'
 import * as S from './styles'
 import { ModalContext } from './context'
-import Moment from 'moment'
+import moment from 'moment'
 
 const urlImage = 'https://image.tmdb.org/t/p/w220_and_h330_face/'
 
@@ -21,7 +21,8 @@ const Modal = () => {
     vote_average,
     vote_count,
   } = filmes
-  const momentFormatado = Moment.format(release_date, 'DD/MM/Y')
+
+  const formatData = moment(release_date).format('DD/MM/YYYY')
 
   return ReactDOM.createPortal(
     <>
@@ -31,19 +32,61 @@ const Modal = () => {
           <S.Container>
             <S.Wrapper>
               <S.Header>
-                <h3>{title}</h3>
                 <S.Close onClick={() => setShowModal(false)}>x</S.Close>
               </S.Header>
-              <img src={`${urlImage}${poster_path}`} />
-              <div>{original_language}</div>
-              <div>{original_title}</div>
-              <div>{momentFormatado}</div>
-              <div>{adult}</div>
 
-              <div>{overview}</div>
-              <div>{popularity}</div>
-              <div>{vote_average}</div>
-              <div>{vote_count}</div>
+              <S.WrapperImg>
+                <img
+                  src={`${urlImage}${poster_path}`}
+                  alt={`imagen da capa do filme ${title}`}
+                />
+              </S.WrapperImg>
+
+              <S.WrapperBody>
+                <S.Informacoes>
+                  <div className={'tituloPrincipal'}>{title}</div>
+                  <div className={'subTitulo'}>Titulo</div>
+                </S.Informacoes>
+
+                <S.Informacoes>
+                  <div className={'titulo'}>{original_title}</div>
+                  <div className={'subTitulo'}>Titulo Original</div>
+                </S.Informacoes>
+                <S.Informacoes>
+                  <div className={'titulo'}>{formatData}</div>
+                  <div className={'subTitulo'}>Data Lançamento</div>
+                </S.Informacoes>
+
+                {/*<S.Informacoes>*/}
+                {/*  <div className={'titulo'}>{overview}</div>*/}
+                {/*  <div className={'subTitulo'}>Visão Geral</div>*/}
+                {/*</S.Informacoes>*/}
+
+                <S.Informacoes>
+                  <div className={'titulo'}>{original_language}</div>
+                  <div className={'subTitulo'}>Idioma Original</div>
+                </S.Informacoes>
+
+                <S.Informacoes>
+                  <div className={'titulo'}>{popularity}</div>
+                  <div className={'subTitulo'}>Popularidade</div>
+                </S.Informacoes>
+
+                <S.Informacoes>
+                  <div className={'titulo'}>{vote_average}</div>
+                  <div className={'subTitulo'}>Média de votos</div>
+                </S.Informacoes>
+
+                <S.Informacoes>
+                  <div className={'titulo'}>{vote_count}</div>
+                  <div className={'subTitulo'}>Votos</div>
+                </S.Informacoes>
+
+                <S.Informacoes>
+                  <div className={'titulo'}>{adult ? 'Sim' : 'Não'}</div>
+                  <div className={'subTitulo'}>Classificação Adultos</div>
+                </S.Informacoes>
+              </S.WrapperBody>
             </S.Wrapper>
           </S.Container>
         </>

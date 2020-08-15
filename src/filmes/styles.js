@@ -41,6 +41,7 @@ export const Wrapper = styled.div`
   transition: 300ms;
 
   :hover {
+    cursor: pointer;
     opacity: 1;
     box-shadow: 0px 0px 17px 7px #34a280;
     transform: scale(1.03);
