@@ -43,7 +43,7 @@ export const Wrapper = styled.div`
   :hover {
     cursor: pointer;
     opacity: 1;
-    box-shadow: 0px 0px 17px 7px #34a280;
+    box-shadow: 0 0 17px 7px #34a280;
     transform: scale(1.03);
   }
 `
@@ -63,11 +63,11 @@ export const Descricao = styled.div`
   @keyframes scale-up-ver-bottom {
     0% {
       transform: scaleY(0.4);
-      transform-origin: 0% 100%;
+      transform-origin: 0 100%;
     }
     100% {
       transform: scaleY(1);
-      transform-origin: 0% 100%;
+      transform-origin: 0 100%;
     }
   }
 `

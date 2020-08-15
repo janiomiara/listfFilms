@@ -16,7 +16,6 @@ const Modal = () => {
     release_date,
     adult,
     original_title,
-    overview,
     popularity,
     vote_average,
     vote_count,
@@ -24,12 +23,20 @@ const Modal = () => {
 
   const formatData = moment(release_date).format('DD/MM/YYYY')
 
+  const closeModal = (e) => {
+    let result = e.includes('container')
+    if (result) setShowModal(false)
+  }
+
   return ReactDOM.createPortal(
     <>
       {modal && (
         <>
           <S.Overlay />
-          <S.Container>
+          <S.Container
+            className={'container'}
+            onClick={(e) => closeModal(e.target.className)}
+          >
             <S.Wrapper>
               <S.Header>
                 <S.Close onClick={() => setShowModal(false)}>x</S.Close>
@@ -56,11 +63,6 @@ const Modal = () => {
                   <div className={'titulo'}>{formatData}</div>
                   <div className={'subTitulo'}>Data Lançamento</div>
                 </S.Informacoes>
-
-                {/*<S.Informacoes>*/}
-                {/*  <div className={'titulo'}>{overview}</div>*/}
-                {/*  <div className={'subTitulo'}>Visão Geral</div>*/}
-                {/*</S.Informacoes>*/}
 
                 <S.Informacoes>
                   <div className={'titulo'}>{original_language}</div>
