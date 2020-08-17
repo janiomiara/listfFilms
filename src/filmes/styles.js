@@ -31,8 +31,8 @@ export const Wrapper = styled.div`
   justify-items: center;
   align-items: flex-end;
   align-content: center;
-  background-color: #175f69;
-  background-repeat: no-repeat, repeat;
+  background-color: black;
+  background-repeat: no-repeat;
   background-image: ${(props) => `url(${props.background})`};
   background-size: cover;
   width: 280px;
@@ -53,11 +53,16 @@ export const Descricao = styled.div`
   font-size: 13px;
   color: white;
   width: 100%;
-  height: 90px;
+  height: 75px;
   background-color: #000000;
   opacity: 0.9;
   flex-wrap: nowrap;
   padding: 10px;
+  p {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 16px;
+  }
 
   animation: scale-up-ver-bottom 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
   @keyframes scale-up-ver-bottom {

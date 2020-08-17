@@ -1,8 +1,8 @@
 import React from 'react'
 import GloblaStyles from './styles/global'
 import Nav from './nav'
-import Filmes from './filmes'
 import Modal from './modal'
+import Filmes from './filmes'
 import { ModalProvider } from './modal/context'
 
 function App() {

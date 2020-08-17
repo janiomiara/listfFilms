@@ -32,16 +32,18 @@ const Filmes = () => {
 
   return (
     <S.Container>
-      <S.ContainerImagem ref={ref}>
+      <S.ContainerImagem ref={ref} data-testid='filmes'>
         {state &&
           state.map((filme, i) => {
             return <ContainerFilme key={i} filme={filme} />
           })}
       </S.ContainerImagem>
       <S.ContainerMensagem>
-        {error && <S.Mensagem>TENTE MAIS TARDE!</S.Mensagem>}
-        {msg && <S.Mensagem>FIM DA LISTA</S.Mensagem>}
-        {loading && <S.Mensagem>LOADING..</S.Mensagem>}
+        {error && (
+          <S.Mensagem data-testid='error'>TENTE MAIS TARDE!</S.Mensagem>
+        )}
+        {msg && <S.Mensagem data-testid='msg'>FIM DA LISTA</S.Mensagem>}
+        {loading && <S.Mensagem data-testid='loading'>LOADING...</S.Mensagem>}
       </S.ContainerMensagem>
     </S.Container>
   )

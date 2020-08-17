@@ -20,6 +20,5 @@ const GloblaStyles = createGlobalStyle`
   overflow: hidden;
   height: 100%;
   }
-  
 `
 export default GloblaStyles

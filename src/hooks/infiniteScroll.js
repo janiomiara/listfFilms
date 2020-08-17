@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
-export default function useInfiniteScroll() {
+function useInfiniteScroll() {
   const [page, setPage] = useState(1)
   const ref = useRef(null)
 
@@ -11,7 +11,7 @@ export default function useInfiniteScroll() {
   useEffect(() => {
     getListContainer().addEventListener('scroll', handleScroll)
     return () => getListContainer().removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [getListContainer])
 
   const handleScroll = () => {
     const list = getListContainer()
@@ -22,8 +22,6 @@ export default function useInfiniteScroll() {
       setPage((prevCount) => prevCount + 1)
     }
   }
-  return {
-    page,
-    ref,
-  }
+  return { page, ref }
 }
+export default useInfiniteScroll
