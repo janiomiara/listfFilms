@@ -96,7 +96,7 @@ const Modal = () => {
         </>
       )}
     </>,
-    document.querySelector('#root')
+    document.querySelector('body')
   )
 }
 
