@@ -20,12 +20,13 @@ const ContainerFilme = ({ filme }) => {
         onMouseOut={() => setState(false)}
         onClick={() => handleModal(filme)}
       >
-        {state && (
-          <S.Descricao>
-            <p>{title}</p>
-            <div>{formatData}</div>
-          </S.Descricao>
-        )}
+        {state ||
+          (filme && (
+            <S.Descricao>
+              <p data-testid='title'>{title}</p>
+              <div data-testid='data'>{formatData}</div>
+            </S.Descricao>
+          ))}
       </S.Wrapper>
     </>
   )
