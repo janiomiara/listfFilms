@@ -35,7 +35,7 @@ it('Teste contianer status false', () => {
   expect(queryByTestId(/data/)).toBeNull()
 })
 
-it('Teste contianer filmes recbendo dados', () => {
+it('Teste contianer filmes recebendo dados evento mouseover', () => {
   const { getByTestId } = render(
     <ModalContext.Provider
       value={{
@@ -55,4 +55,32 @@ it('Teste contianer filmes recbendo dados', () => {
 
   expect(getByTestId('title')).toHaveTextContent('Titulo do filme')
   expect(getByTestId('data')).toHaveTextContent('20/08/2020')
+})
+
+it('Teste contianer filmes recebendo dados evento mouseover e  onMouseOut', () => {
+  const { getByTestId, queryByTestId } = render(
+    <ModalContext.Provider
+      value={{
+        modal,
+        setShowModal,
+        filmes,
+        handleModal,
+      }}
+    >
+      <ContainerFilme filme={filmes} />
+    </ModalContext.Provider>
+  )
+  act(() => {
+    const evento = getByTestId('evento')
+    evento.dispatchEvent(new MouseEvent('mouseover', { bubbles: true }))
+  })
+  expect(getByTestId('title')).toHaveTextContent('Titulo do filme')
+  expect(getByTestId('data')).toHaveTextContent('20/08/2020')
+
+  act(() => {
+    const evento = getByTestId('evento')
+    evento.dispatchEvent(new MouseEvent('mouseout', { bubbles: true }))
+  })
+  expect(queryByTestId(/title/)).toBeNull()
+  expect(queryByTestId(/data/)).toBeNull()
 })

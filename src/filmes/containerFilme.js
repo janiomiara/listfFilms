@@ -12,10 +12,6 @@ const ContainerFilme = ({ filme }) => {
   const [state, setState] = useState(false)
   const formatData = moment(release_date).format('DD/MM/YYYY')
 
-  const showDescr = () => {
-    setState(true)
-  }
-
   return (
     <>
       <S.Wrapper
