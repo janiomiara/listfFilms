@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { render, act } from '@testing-library/react'
 import ContainerFilme from './containerFilme'
 import { ModalContext } from '../modal/context'
 
@@ -19,7 +19,7 @@ const filmes = {
 }
 
 it('Teste contianer status false', () => {
-  const { getByTestId, queryByTestId } = render(
+  const { queryByTestId } = render(
     <ModalContext.Provider
       value={{
         modal: false,
@@ -48,6 +48,11 @@ it('Teste contianer filmes recbendo dados', () => {
       <ContainerFilme filme={filmes} />
     </ModalContext.Provider>
   )
+  act(() => {
+    const evento = getByTestId('evento')
+    evento.dispatchEvent(new MouseEvent('mouseover', { bubbles: true }))
+  })
+
   expect(getByTestId('title')).toHaveTextContent('Titulo do filme')
   expect(getByTestId('data')).toHaveTextContent('20/08/2020')
 })

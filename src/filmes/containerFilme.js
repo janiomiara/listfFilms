@@ -12,21 +12,25 @@ const ContainerFilme = ({ filme }) => {
   const [state, setState] = useState(false)
   const formatData = moment(release_date).format('DD/MM/YYYY')
 
+  const showDescr = () => {
+    setState(true)
+  }
+
   return (
     <>
       <S.Wrapper
+        data-testid='evento'
         background={poster_path ? `${urlImage}${poster_path}` : kipper}
         onMouseOver={() => setState(true)}
         onMouseOut={() => setState(false)}
         onClick={() => handleModal(filme)}
       >
-        {state ||
-          (filme && (
-            <S.Descricao>
-              <p data-testid='title'>{title}</p>
-              <div data-testid='data'>{formatData}</div>
-            </S.Descricao>
-          ))}
+        {state && (
+          <S.Descricao>
+            <p data-testid='title'>{title}</p>
+            <div data-testid='data'>{formatData}</div>
+          </S.Descricao>
+        )}
       </S.Wrapper>
     </>
   )
