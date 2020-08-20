@@ -6,6 +6,7 @@ import { ModalContext } from '../modal/context'
 const setShowModal = jest.fn()
 const handleModal = jest.fn()
 const modal = true
+
 const filmes = {
   poster_path: 'http//',
   original_language: 'br',

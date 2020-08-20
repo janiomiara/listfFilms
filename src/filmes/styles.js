@@ -19,6 +19,7 @@ export const ContainerImagem = styled.div`
   height: 100%;
   overflow: auto;
 `
+
 export const ContainerMensagem = styled.div`
   width: 100%;
   height: 35px;

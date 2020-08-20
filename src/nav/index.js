@@ -5,7 +5,7 @@ import logo from '../assist/logokipper.png'
 const Nav = () => {
   return (
     <Container>
-      <img src={logo} alt={'Logo da empresa Kipper Movies'} />
+      <img src={logo} alt={'Logo da empresa Kiper Movies'} />
     </Container>
   )
 }
