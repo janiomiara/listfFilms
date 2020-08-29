@@ -1,4 +1,4 @@
-import Api from '../services'
+import Api from '../../services'
 const language = 'pr-BR'
 
 export const getFilme = async (params) =>

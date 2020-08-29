@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import * as S from './styles'
 import { ModalContext } from './context'
 import moment from 'moment'
-import kipper from '../assist/capa_filme_kipper.png'
+import kipper from '../../assets/capa_filme_kipper.png'
 
 const urlImage = 'https://image.tmdb.org/t/p/w220_and_h330_face/'
 

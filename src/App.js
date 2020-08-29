@@ -1,9 +1,9 @@
 import React from 'react'
 import GloblaStyles from './styles/global'
-import Nav from './nav'
-import Modal from './modal'
-import Filmes from './filmes'
-import { ModalProvider } from './modal/context'
+import Nav from './components/nav'
+import Modal from './components/modal'
+import Filmes from './components/movies'
+import { ModalProvider } from './components/modal/context'
 
 function App() {
   return (

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getFilme } from './api'
-import ContainerFilme from './containerFilme'
-import useInfiniteScroll from '../hooks/infiniteScroll'
+import ContainerMovie from './containerMovie'
+import useInfiniteScroll from '../../hooks/infiniteScroll'
 import * as S from './styles'
 
 const Filmes = () => {
@@ -35,7 +35,7 @@ const Filmes = () => {
       <S.ContainerImagem ref={ref} data-testid='filmes'>
         {state &&
           state.map((filme, i) => {
-            return <ContainerFilme key={i} filme={filme} />
+            return <ContainerMovie key={i} filme={filme} />
           })}
       </S.ContainerImagem>
       <S.ContainerMensagem>

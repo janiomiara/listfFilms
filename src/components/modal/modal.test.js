@@ -18,7 +18,7 @@ const filmes = {
   vote_count: '10.8',
 }
 
-it('Teste clouse modal', async () => {
+it('Test clouse modal', async () => {
   const { queryByText } = render(
     <ModalContext.Provider
       value={{
@@ -38,7 +38,7 @@ it('Teste clouse modal', async () => {
   expect(queryByText('10.8')).not.toBeTruthy()
 })
 
-it('Teste modal passando props filme', async () => {
+it('Test modal props filme', async () => {
   const { queryByText } = render(
     <ModalContext.Provider
       value={{

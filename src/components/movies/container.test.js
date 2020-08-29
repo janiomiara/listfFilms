@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, act } from '@testing-library/react'
-import ContainerFilme from './containerFilme'
+import ContainerMovie from './containerMovie'
 import { ModalContext } from '../modal/context'
 
 const setShowModal = jest.fn()
@@ -29,14 +29,14 @@ it('Teste contianer status false', () => {
         handleModal,
       }}
     >
-      <ContainerFilme filme={false} />
+      <ContainerMovie filme={false} />
     </ModalContext.Provider>
   )
   expect(queryByTestId(/title/)).toBeNull()
   expect(queryByTestId(/data/)).toBeNull()
 })
 
-it('Teste contianer filmes recebendo dados evento mouseover', () => {
+it('Teste contianer movies recebendo dados evento mouseover', () => {
   const { getByTestId } = render(
     <ModalContext.Provider
       value={{
@@ -46,7 +46,7 @@ it('Teste contianer filmes recebendo dados evento mouseover', () => {
         handleModal,
       }}
     >
-      <ContainerFilme filme={filmes} />
+      <ContainerMovie filme={filmes} />
     </ModalContext.Provider>
   )
   act(() => {
@@ -58,7 +58,7 @@ it('Teste contianer filmes recebendo dados evento mouseover', () => {
   expect(getByTestId('data')).toHaveTextContent('20/08/2020')
 })
 
-it('Teste contianer filmes recebendo dados evento mouseover e  onMouseOut', () => {
+it('Teste contianer movies recebendo dados evento mouseover e  onMouseOut', () => {
   const { getByTestId, queryByTestId } = render(
     <ModalContext.Provider
       value={{
@@ -68,7 +68,7 @@ it('Teste contianer filmes recebendo dados evento mouseover e  onMouseOut', () =
         handleModal,
       }}
     >
-      <ContainerFilme filme={filmes} />
+      <ContainerMovie filme={filmes} />
     </ModalContext.Provider>
   )
   act(() => {
